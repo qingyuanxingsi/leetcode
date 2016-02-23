@@ -1,4 +1,4 @@
-LeetCode(qingyuanxingsi)
+LeetCode
 ========
 
 ### TODOly
