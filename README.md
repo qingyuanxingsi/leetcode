@@ -17,9 +17,8 @@ LeetCode
 |321|[Create Maximum Number](https://leetcode.com/problems/create-maximum-number/) | [C++](./algorithms/cpp/createMaximumNumber/CreateMaximumNumber.cpp)|Hard|
 |319|[Bulb Switcher](https://leetcode.com/problems/bulb-switcher/) | [C++](./algorithms/cpp/bulbSwitcher/bulbSwitcher.cpp)|Medium|
 |316|[Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters/) | |Medium|
-|315|[Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/) |
-[C++](./algorithms/cpp/countOfSmallerNumbersAfterSelf/countOfSmallerNumbersAfterSelf.cpp)|Hard|
-[313][Super Ugly Number](https://leetcode.com/problems/super-ugly-number/) ||Hard|
+|315|[Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)||Hard|
+[313][Super Ugly Number](https://leetcode.com/problems/super-ugly-number/)||Hard|
 |312|[Burst Balloons](https://leetcode.com/problems/burst-balloons/) | [C++](./algorithms/cpp/burstBalloons/BurstBalloons.cpp)|Hard|
 |310|[Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/) | [C++](./algorithms/cpp/minimumHeightTrees/MinimumHeightTrees.cpp)|Medium|
 |309|[Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | |Medium|
