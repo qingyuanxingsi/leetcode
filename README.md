@@ -3,8 +3,6 @@ LeetCode
 
 ### TODOly
 
-(Notes: "&hearts;" means you need to buy a book from Leetcode)
-
 Total *106* questions in the following table.
 
 | # | Title | Solution | Difficulty |
