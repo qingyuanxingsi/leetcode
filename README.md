@@ -7,6 +7,8 @@ LeetCode
 
 **335-330 to be included.**
 
+Total 102 questions in the following table.
+
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
 |329|[Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) | [C++](./algorithms/cpp/longestIncreasingPathInAMatrix/LongestIncreasingPathInAMatrix.cpp)|Medium|
