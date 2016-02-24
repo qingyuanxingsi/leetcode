@@ -35,19 +35,20 @@ class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
         if (!head) return head;
-        ListNode* pOdd = head;
-        ListNode* p = head->next;
-        ListNode* pNext = NULL;
-        while(p && (pNext=p->next)) {
-            
-            p->next = pNext->next;
-            pNext->next = pOdd->next;
-            pOdd->next = pNext;
-            
-            p = p->next;
-            pOdd = pOdd->next;
+        ListNode* odd = head;
+        ListNode* oddHead = odd;
         
+        ListNode* even = head->next;
+        ListNode* evenHead = even;
+        
+        while(even!=NULL && even->next!=NULL){
+            odd->next = even->next;
+            odd = odd->next;
+            even->next = odd->next;
+            even = even->next;
         }
-        return head;
+        
+        odd->next = evenHead;
+        return oddHead;
     }
 };
