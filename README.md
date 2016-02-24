@@ -3,7 +3,7 @@ LeetCode
 
 ### TODOly
 
-Total **104** questions in the following table.
+Total **103** questions in the following table.
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
@@ -12,7 +12,6 @@ Total **104** questions in the following table.
 |331|[Verify Preorder Serialization of a Binary Tree](https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree/) | |Medium|
 |330|[Patching Array](https://leetcode.com/problems/patching-array/) | |Medium|
 |329|[Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) | [C++](./algorithms/cpp/longestIncreasingPathInAMatrix/LongestIncreasingPathInAMatrix.cpp)|Medium|
-|328|[Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/) | [C++](./algorithms/cpp/oddEvenLinkedList/OddEvenLinkedList.cpp)|Easy|
 |327|[Count of Range Sum](https://leetcode.com/problems/count-of-range-sum/) | [C++](./algorithms/cpp/countOfRangeSum/CountOfRangeSum.cpp)|Hard|
 |324|[Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/) | |Medium|
 |322|[Coin Change](https://leetcode.com/problems/coin-change/) | [C++](./algorithms/cpp/coinChange/coinChange.cpp)|Medium|
