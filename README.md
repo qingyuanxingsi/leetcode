@@ -3,7 +3,7 @@ LeetCode
 
 ### TODOly
 
-Total *105* questions in the following table.
+Total **105** questions in the following table.
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
