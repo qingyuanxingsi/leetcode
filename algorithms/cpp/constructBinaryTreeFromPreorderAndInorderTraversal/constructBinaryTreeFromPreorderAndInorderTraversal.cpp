@@ -1,6 +1,6 @@
 // Source : https://oj.leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
-// Author : Hao Chen
-// Date   : 2014-07-09
+// Author : qingyuanxingsi
+// Date   : 2016-02-24
 
 /********************************************************************************** 
 * 
@@ -12,123 +12,38 @@
 *               
 **********************************************************************************/
 
-#include <stdio.h>
-#include <vector>
-#include <queue>
-using namespace std;
+#include <map>
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+private:
+    map<int,int> posMap;
+public:
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        auto vec_num = inorder.size();
+        for(int i=0;i!=vec_num;i++){
+            posMap[inorder[i]] = i;
+        }
+        return helper(preorder,0,vec_num-1,inorder,0,vec_num-1);
+    }
+    
+    TreeNode* helper(vector<int>& preorder,int start1,int end1,vector<int>& inorder,int start2,int end2){
+        if(start1 > end1 || start2 > end2){
+            return NULL;
+        }
+        int rootVal = preorder[start1];
+        TreeNode* head = new TreeNode(rootVal);
+        int rootIndex = posMap[rootVal];
+        head->left = helper(preorder,start1+1,start1+rootIndex-start2,inorder,start2,rootIndex-1);
+        head->right = helper(preorder,end1-end2+rootIndex+1,end1,inorder,rootIndex+1,end2);
+        return head;
+    }
 };
-
-TreeNode *buildTree(vector<int>& preorder, int& preidx, vector<int>& inorder);
-
-TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
-    int preidx=0;
-    return buildTree(preorder, preidx, inorder);
-}
-
-TreeNode *buildTree(vector<int>& preorder, int& preidx, vector<int>& inorder) {
-
-    if (preorder.size()<=0 || inorder.size()<=0 ) return NULL;
-
-    TreeNode *root = new TreeNode(preorder[preidx]);
-    if (inorder.size()==1){
-        return root;
-    }
-
-    int i;
-    for(i=0; i<inorder.size(); i++){
-        if (inorder[i] == preorder[preidx]){
-            break;
-        }
-    }
-
-    //error: not found
-    if (i == inorder.size()) return NULL;
-
-    if (preidx+1 >= preorder.size()){
-        return root;
-    }
-
-    
-    vector<int> v(inorder.begin(), inorder.begin()+i);
-    if (v.size()>0) {
-        preidx++;
-        root->left = buildTree(preorder, preidx, v);
-    }
-
-    v.clear();
-    v.assign(inorder.begin()+i+1, inorder.end());
-    if (v.size()>0) {
-        preidx++;
-        root->right = buildTree(preorder, preidx, v);
-    }
-
-    return root;
-}
-
-void printTree_pre_order(TreeNode *root)
-{
-    if (root == NULL){
-        printf("# ");
-        return;
-    }
-    printf("%c ", root->val );
-
-    printTree_pre_order(root->left);
-    printTree_pre_order(root->right);
-}
-
-void printTree_in_order(TreeNode *root)
-{
-    if (root == NULL){
-        printf("# ");
-        return;
-    }
-
-    printTree_in_order(root->left);
-    printf("%c ", root->val );
-    printTree_in_order(root->right);
-}
-
-
-void printTree_level_order(TreeNode *root)
-{
-    queue<TreeNode*> q;
-    q.push(root);
-    while (q.size()>0){
-        TreeNode* n = q.front();
-        q.pop();
-        if (n==NULL){
-            printf("# ");
-            continue;
-        }
-        printf("%c ", n->val);
-        q.push(n->left);
-        q.push(n->right);
-    }
-    printf("\n");
-}
-
-
-int main()
-{
-    int pre_order[]={'F', 'B', 'A', 'D', 'C', 'E', 'G', 'I', 'H'};
-    int  in_order[]={'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'};
-    vector<int> preorder( pre_order, pre_order + 9 );
-    vector<int>  inorder(  in_order,  in_order + 9 );
-
-    TreeNode* tree = buildTree(preorder, inorder);
-
-    printTree_level_order(tree);
-    printTree_pre_order(tree);
-    printf("\n");
-    printTree_in_order(tree);
-    printf("\n");
-    
-    return 0;
-}
