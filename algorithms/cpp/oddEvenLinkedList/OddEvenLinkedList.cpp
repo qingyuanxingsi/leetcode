@@ -1,6 +1,6 @@
 // Source : https://leetcode.com/problems/odd-even-linked-list/
-// Author : Hao Chen
-// Date   : 2016-01-16
+// Author : qingyuanxingsi
+// Date   : 2016-02-24
 
 /*************************************************************************************** 
  *
