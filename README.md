@@ -3,7 +3,7 @@ LeetCode
 
 ### TODOly
 
-Total **105** questions in the following table.
+Total **104** questions in the following table.
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
@@ -51,7 +51,6 @@ Total **105** questions in the following table.
 |210|[Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)| [C++](./algorithms/cpp/courseSchedule/CourseSchedule.II.cpp)|Medium|
 |209|[Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)| [C++](./algorithms/cpp/minimumSizeSubarraySum/MinimumSizeSubarraySum.cpp)|Medium|
 |207|[Course Schedule](https://leetcode.com/problems/course-schedule/)| [C++](./algorithms/cpp/courseSchedule/CourseSchedule.cpp)|Medium|
-|204|[Count Primes](https://leetcode.com/problems/count-primes/)| [C++](./algorithms/cpp/countPrimes/CountPrimes.cpp)|Easy|
 |201|[Bitwise AND of Numbers Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/)| [C++](./algorithms/cpp/bitwiseANDOfNumbersRange/BitwiseAndOfNumbersRange.cpp)|Medium|
 |200|[Number of Islands](https://leetcode.com/problems/number-of-islands/)| [C++](./algorithms/cpp/numberOfIslands/NumberOfIslands.cpp)|Medium|
 |188|[Best Time to Buy and Sell Stock IV](https://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)| [C++](./algorithms/cpp/bestTimeToBuyAndSellStock/bestTimeToBuyAndSellStock.IV.cpp)|Hard|
