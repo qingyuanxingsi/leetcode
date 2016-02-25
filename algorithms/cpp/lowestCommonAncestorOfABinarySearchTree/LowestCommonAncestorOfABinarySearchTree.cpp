@@ -39,19 +39,30 @@
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-
-        while(root) {
-            if (p->val > root->val && q->val > root->val) {
-                root = root->right;
-                continue;
-            }
-            if (p->val < root->val && q->val < root->val) {
-                root = root->left;
-                continue;
-            }
-            return root;
-            
+        if(root == NULL || p == NULL || q == NULL){
+            return NULL;
         }
-        return NULL;
+        else{
+            int rootVal = root->val;
+            int pVal = p->val;
+            int qVal = q->val;
+            if(rootVal == pVal){
+                return p;
+            }
+            if(rootVal == qVal){
+                return q;
+            }
+            int test = (rootVal - pVal)*(rootVal - qVal);
+            // on different side
+            if(test < 0){
+                return root;
+            }
+            else{
+                if(rootVal < pVal){
+                    return lowestCommonAncestor(root->right,p,q);
+                }
+                return lowestCommonAncestor(root->left,p,q);
+            }
+        }
     }
 };
