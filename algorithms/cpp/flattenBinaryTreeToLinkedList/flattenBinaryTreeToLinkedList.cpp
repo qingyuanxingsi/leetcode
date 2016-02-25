@@ -1,6 +1,6 @@
 // Source : https://oj.leetcode.com/problems/flatten-binary-tree-to-linked-list/
-// Author : Hao Chen
-// Date   : 2014-07-03
+// Author : qingyuanxingsi
+// Date   : 2016-02-25
 
 /********************************************************************************** 
 * 
@@ -37,7 +37,7 @@
 **********************************************************************************/
 
 /**
- * Definition for binary tree
+ * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
@@ -47,30 +47,25 @@
  */
 class Solution {
 public:
-    void flatten(TreeNode *root) {
-        
-        vector<TreeNode*> v, stack;
-        stack.push_back(root);
-        while(stack.size()>0){
-            TreeNode* node = stack.back();
-            stack.pop_back();
-            v.push_back(node);
-            
-            if (node && node->right){
-                stack.push_back(node->right);
-            }
-            if (node && node->left){
-                stack.push_back(node->left);
-            }
+    void flatten(TreeNode* root) {
+        if(root == NULL){
+            return;
         }
-        
-        v.push_back(NULL);
-        for(int i=0; i<v.size(); i++){
-            if (v[i]){
-                v[i]->left = NULL;
-                v[i]->right = v[i+1];
-            }
+        if(root->left == NULL){
+            flatten(root->right);
         }
-        
+        else{
+            flatten(root->left);
+            flatten(root->right);
+            TreeNode* p = root->left;
+            TreeNode* s = p;
+            TreeNode* q = root->right;
+            while(s->right!=NULL){
+                s = s->right;
+            }
+            s->right = q;
+            root->right = p;
+            root->left = NULL;
+        }
     }
 };
