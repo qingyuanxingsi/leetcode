@@ -3,7 +3,7 @@ LeetCode
 
 ### TODOly
 
-Total **98** questions in the following table.
+Total **98(Medium/58 Hard/40)** questions in the following table.
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
