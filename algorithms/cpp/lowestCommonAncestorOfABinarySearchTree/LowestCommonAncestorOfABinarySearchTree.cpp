@@ -1,6 +1,6 @@
 // Source : https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
-// Author : Hao Chen
-// Date   : 2015-07-17
+// Author : qingyuanxingsi
+// Date   : 2016-02-25
 
 /********************************************************************************** 
  * 
