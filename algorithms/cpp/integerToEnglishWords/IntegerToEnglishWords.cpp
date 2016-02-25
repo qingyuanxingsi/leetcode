@@ -1,6 +1,6 @@
 // Source : https://leetcode.com/problems/integer-to-english-words/
-// Author : Hao Chen
-// Date   : 2015-10-22
+// Author : qingyuanxingsi
+// Date   : 2016-02-25
 
 /*************************************************************************************** 
  *
@@ -24,108 +24,64 @@
  *               
  ***************************************************************************************/
 
-#include <stdlib.h>
-#include <iostream>
-#include <vector>
 #include <string>
-using namespace std;
 
-static string dict1[] ={"Zero","One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
-                 "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", 
-                 "Seventeen", "Eighteen", "Nineteen"};
-                 
-static string dict2[]={"","", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
-static string dict3[]={"Hundred", "Thousand", "Million", "Billion" };
-
-
-// This function only converts the number which less than 1000
-string numberLess1000ToWords(int num) {
-    //char n[3] = {0, 0, 0};
-    string result;
-
-    if (num == 0) {
-        return result;
-    }else if (num < 20) {
-        return dict1[num];
-    } else if (num < 100) {
-        result = dict2[num/10];
-        if (num%10 > 0) { 
-            result += " " + dict1[num%10];
+class Solution {
+private:
+    vector<string> jumps = {"Thousand","Million","Billion","Trillion"};
+    vector<string> ones = {"","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
+    vector<string> teens = {"Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"};
+    vector<string> tys = {"","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"};
+public:
+    string numberToWords(int num) {
+        if(num == 0){
+            return "Zero";
         }
-    }else {
-        result = dict1[num/100] + " " + dict3[0];
-        if ( num % 100 > 0 ) {
-            result += " " + numberLess1000ToWords( num % 100 );
+        int divide = 1000;
+        vector<string> result;
+        int tag = -1;
+        while(num != 0){
+            int div = num / divide;
+            int remainder = num % divide;
+            tag++;
+            if(remainder != 0){
+                vector<string> tmp = say(remainder);
+                result.insert(result.begin(),tmp.begin(),tmp.end());
+            }
+             if(div % divide !=0){
+                result.insert(result.begin(),jumps[tag]);
+            }
+            num = div;
         }
+        string final = "";
+        for(int i=0;i!=result.size()-1;i++){
+            final += result[i] + " ";
+        }
+        final += result[result.size()-1];
+        return final;
     }
-    return result;
-}
-
-string numberToWords(int num) {
-    //edge case
-    if (num ==0 ) return dict1[num];
-
-    vector<string> ret;
-    for( ;num > 0; num/=1000 ) {
-        ret.push_back( numberLess1000ToWords(num % 1000) );
-    }
-
-    string result=ret[0];
-    for (int i=1; i<ret.size(); i++){
-        if (ret[i].size() > 0 ){
-            if ( result.size() > 0 ) {
-                result = ret[i] + " " + dict3[i] + " " + result; 
-            } else {
-                result = ret[i] + " " + dict3[i]; 
+    
+    vector<string> say(int num){
+        vector<string> tmp;
+        int a = num / 100;
+        if(a != 0){
+            tmp.push_back(ones[a]);
+            tmp.push_back("Hundred");
+        }
+        int b = num % 100;
+        int c = b / 10;
+        int d = b % 10;
+        if(c == 1){
+            tmp.push_back(teens[d]);
+        }
+        else{
+            if(c>=2){
+                tmp.push_back(tys[c]);
+            }
+            if(d>=1){
+                tmp.push_back(ones[d]);
             }
         }
-
+        return tmp;
     }
-    return result;
-}
-
-
-#define TEST(num) cout << num << " -> \"" << numberToWords(num) << "\"" << endl
-int main(int argc, char** argv) 
-{
-    int num = 123;
-    if (argc >1){
-        num = atoi(argv[1]);
-    }
-    TEST(num);
-
-    TEST(0);
-    TEST(1);
-    TEST(10);
-    TEST(11);
-    TEST(18);
-    TEST(20);
-    TEST(22);
-    TEST(30);
-    TEST(99);
-    TEST(100);
-    TEST(101);
-    TEST(110);
-    TEST(120);
-    TEST(256);
-    TEST(1000);
-    TEST(1001);
-    TEST(1010);
-    TEST(1110);
-    TEST(1111);
-    TEST(10000);
-    TEST(10001);
-    TEST(100000);
-    TEST(100001);
-    TEST(1000000);
-    TEST(1000001);
-    TEST(10000000);
-    TEST(10000001);
-    TEST(100000000);
-    TEST(100000001);
-    TEST(1000000000);
-    TEST(1000000001);
-    TEST(2147483647);
-
-    return 0;
-}
+};
