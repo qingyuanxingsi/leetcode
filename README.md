@@ -3,7 +3,7 @@ LeetCode
 
 ### TODOly
 
-Total **93(Medium/53 Hard/40)** questions in the following table.
+Total **92(Medium/52 Hard/40)** questions in the following table.
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
@@ -58,7 +58,6 @@ Total **93(Medium/53 Hard/40)** questions in the following table.
 |152|[Maximum Product Subarray](https://oj.leetcode.com/problems/maximum-product-subarray/)| [C++](./algorithms/cpp/maximumProductSubarray/maximumProductSubarray.cpp)|Medium|
 |149|[Max Points on a Line](https://oj.leetcode.com/problems/max-points-on-a-line/)| [C++](./algorithms/cpp/maxPointsOnALine/maxPointsOnALine.cpp)|Hard|
 |148|[Sort List](https://oj.leetcode.com/problems/sort-list/)| [C++](./algorithms/cpp/sortList/sortList.cpp)|Medium|
-|147|[Insertion Sort List](https://oj.leetcode.com/problems/insertion-sort-list/)| [C++](./algorithms/cpp/insertionSortList/insertionSortList.cpp)|Medium|
 |146|[LRU Cache](https://oj.leetcode.com/problems/lru-cache/)| [C++](./algorithms/cpp/LRUCache/LRUCache.cpp), [Java](./algorithms/java/src/lruCache/LRUCache.java)|Hard|
 |143|[Reorder List](https://oj.leetcode.com/problems/reorder-list/)| [C++](./algorithms/cpp/reorderList/reorderList.cpp)|Medium|
 |142|[Linked List Cycle II](https://oj.leetcode.com/problems/linked-list-cycle-ii/)| [C++](./algorithms/cpp/linkedListCycle/linkedListCycle.II.cpp)|Medium|
