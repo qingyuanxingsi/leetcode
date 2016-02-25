@@ -1,6 +1,6 @@
 // Source : https://oj.leetcode.com/problems/insertion-sort-list/
-// Author : Hao Chen
-// Date   : 2014-07-19
+// Author : qingyuanxingsi
+// Date   : 2016-02-25
 
 /********************************************************************************** 
 * 
@@ -8,83 +8,47 @@
 *               
 **********************************************************************************/
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
-
-ListNode *insertionSortList(ListNode *head) {
-    // zero or one element in list
-    if (head == NULL || head->next ==NULL){
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* head) {
+        if(head == NULL){
+            return NULL;
+        }
+        // head start of sorted
+        // p end of sorted
+        ListNode* p = head;
+        while(p!=NULL && p->next!=NULL){
+            ListNode* q = p->next;
+            ListNode* s = head;
+            if(s->val > q->val){
+                //Insert at the head of the list
+                p->next = q->next;
+                q->next = head;
+                head = q;
+            }
+            else{
+                while(s->next->val < q->val){
+                    // s->next is the position to insert
+                    s = s->next;
+                }
+                if(s->next!=q){
+                    p->next = q->next;
+                    q->next = s->next;
+                    s->next = q;
+                }
+                else{
+                    p = p->next;
+                }
+            }
+        }
         return head;
     }
-
-    ListNode *pSorted = NULL;
-    while ( head != NULL  ){
-        /* remember the head */
-        ListNode *pHead = head;
-        /* trailing pointer for efficient splice */
-        ListNode **ppTrail = &pSorted;
-        
-        /* pop head off list */
-        head = head->next;
-        
-        /* splice head into sorted list at proper place */
-        while( *ppTrail!=NULL && pHead->val > (*ppTrail)->val )  {
-            ppTrail = &(*ppTrail)->next;
-        }
-        pHead->next = *ppTrail;
-        *ppTrail = pHead;
-    }
-
-    return pSorted;
-}
-
-void printList(ListNode* h)
-{
-    while(h!=NULL){
-        printf("%d ", h->val);
-        h = h->next;
-    }
-    printf("\n");
-}
-
-ListNode* createList(int a[], int n)
-{
-    ListNode *head=NULL, *p=NULL;
-    for(int i=0; i<n; i++){
-        if (head == NULL){
-            head = p = new ListNode(a[i]);
-        }else{
-            p->next = new ListNode(a[i]);
-            p = p->next;
-        }
-    }
-    return head;
-}
-
-
-int main(int argc, char** argv)
-{
-    int n = 10;
-    if (argc>1){
-        n = atoi(argv[1]);
-    }
-    srand(time(NULL));
-
-    int *a = new int[n];
-    for(int i=0; i<n; i++){
-        a[i] = random()%n + 1;
-    }
-
-    ListNode *p = createList(a, n);
-    printList(p);
-    printList(insertionSortList(p));
-
-    delete[] a;
-}
+};
