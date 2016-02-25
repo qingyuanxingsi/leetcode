@@ -3,7 +3,7 @@ LeetCode
 
 ### TODOly
 
-Total **95(Medium/55 Hard/40)** questions in the following table.
+Total **94(Medium/54 Hard/40)** questions in the following table.
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
@@ -24,7 +24,6 @@ Total **95(Medium/55 Hard/40)** questions in the following table.
 |329|[Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) | [C++](./algorithms/cpp/longestIncreasingPathInAMatrix/LongestIncreasingPathInAMatrix.cpp)|Medium|
 |327|[Count of Range Sum](https://leetcode.com/problems/count-of-range-sum/) | [C++](./algorithms/cpp/countOfRangeSum/CountOfRangeSum.cpp)|Hard|
 |324|[Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/) | |Medium|
-|322|[Coin Change](https://leetcode.com/problems/coin-change/) | [C++](./algorithms/cpp/coinChange/coinChange.cpp)|Medium|
 |321|[Create Maximum Number](https://leetcode.com/problems/create-maximum-number/) | [C++](./algorithms/cpp/createMaximumNumber/CreateMaximumNumber.cpp)|Hard|
 |319|[Bulb Switcher](https://leetcode.com/problems/bulb-switcher/) | [C++](./algorithms/cpp/bulbSwitcher/bulbSwitcher.cpp)|Medium|
 |316|[Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters/)||Medium|
