@@ -3,11 +3,11 @@ LeetCode
 
 ### TODOly
 
-Total **95(Medium/55 Hard/40)** questions in the following table.
+Total **96(Medium/56 Hard/40)** questions in the following table.
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
-|31|[Next Permutation](https://oj.leetcode.com/problems/next-permutation/)|
+|31|[Next Permutation](https://oj.leetcode.com/problems/next-permutation/)||Medium|
 |307|[Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query-mutable/) | [C++](./algorithms/cpp/rangeSumQuery-Immutable/rangeSumQuery-Mutable/RangeSumQueryMutable.cpp)|Medium|[C++](./algorithms/cpp/nextPermutation/nextPermutation.cpp)|Medium|
 |297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)  | [C++](./algorithms/cpp/serializeAndDeserializeBinaryTree/SerializeAndDeserializeBinaryTree.cpp)|Medium|
 |284|[Peeking Iterator](https://leetcode.com/problems/peeking-iterator/)  | [C++](./algorithms/cpp/peekingIterator/PeekingIterator.cpp)|Medium|
