@@ -1,6 +1,6 @@
 // Source : https://oj.leetcode.com/problems/spiral-matrix/
-// Author : Hao Chen
-// Date   : 2014-06-30
+// Author : qingyuanxingsi
+// Date   : 2016-02-25
 
 /********************************************************************************** 
 * 
@@ -20,83 +20,44 @@
 *               
 **********************************************************************************/
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
-#include <vector>
-using namespace std;
-
-vector<int> spiralOrder(vector<vector<int> > &matrix) {
-    vector <int> v;
-    int row = matrix.size();
-    if (row<=0) return v;
-    int col = matrix[0].size();
-    if (col<=0) return v;
-    int r, c;
-    for (r=0, c=0; r<(row+1)/2 && c<(col+1)/2; r++, c++){
-        //top
-        for(int i=c; i<col-c; i++){
-            v.push_back(matrix[r][i]);
+class Solution {
+private:
+    vector<int> result;
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        auto M = matrix.size();
+        if(M == 0){
+            return result;
         }
-        //right
-        for(int i=r+1; i<row-r; i++){
-            v.push_back(matrix[i][col-c-1]);
+        auto N = matrix[0].size();
+        visit(matrix,0,0,M-1,N-1);
+        return result;
+    }
+    
+    void visit(vector<vector<int>>& matrix,int x1,int y1,int x2,int y2){
+        if(x1 > x2 || y1 > y2){
+            return;
         }
-        //bottom
-        for(int i=col-c-2; row-r-1>r && i>=c; i--){
-            v.push_back(matrix[row-r-1][i]);
+        // right
+        for(int i=y1;i<=y2;i++){
+            result.push_back(matrix[x1][i]);
         }
-        //left
-        for(int i=row-r-2; col-c-1>c && i>r; i--){
-            v.push_back(matrix[i][c]);
+        // down
+        for(int i=x1+1;i<=x2;i++){
+            result.push_back(matrix[i][y2]);
         }
-        
-    }
-    return v;
-}
-
-
-void printArray(vector<int> v)
-{
-    cout << "[";
-    for(int j=0; j<v.size(); j++) {
-        printf(" %02d", v[j]);
-    }
-    cout << "]" << endl;;
-}
-
-void printMatrix(vector< vector<int> > &vv)
-{
-    for(int i=0; i<vv.size(); i++) {
-        printArray(vv[i]);
-    }
-    cout << endl;
-}
-
-vector< vector<int> > createMatrix(int n, int m)
-{
-    vector< vector<int> > vv;
-    int cnt = 1;
-    for(int i=0; i<n; i++){
-        vector<int> v;
-        for(int j=0; j<m; j++){
-            v.push_back(cnt++);
+        // left when x2 > x1
+        if(x2 > x1){
+            for(int i=y2-1;i>=y1;i--){
+                result.push_back(matrix[x2][i]);
+            }
         }
-        vv.push_back(v);
+        // up when y2 > y1
+        if(y2 > y1){
+            for(int i=x2-1;i>x1;i--){
+                result.push_back(matrix[i][y1]);
+            }
+        }
+        visit(matrix,x1+1,y1+1,x2-1,y2-1);
     }
-    return vv;
-}
-
-int main(int argc, char** argv)
-{
-    int n=3, m=3;
-    if (argc>2){
-        n = atoi(argv[1]);
-        m = atoi(argv[2]);
-    }
-    vector< vector<int> > matrix = createMatrix(n, m);
-    printMatrix(matrix);
-    vector<int> v = spiralOrder(matrix);
-    printArray(v);
-    return 0;
-}
+};
